@@ -1,0 +1,106 @@
+ALGORITHM tab
+VAR
+    tab1:= [1, 4, 7, 9, 11] : INTEGER;
+    tab2 :=[5, 9, 13, 4, 20, 16] : INTEGER;
+    i: INTEGER;
+    j: INTEGER;
+    comp := 0 : INTEGER;
+    sum:=0 :INTEGER;
+BEGIN
+    for i FROM 0 TO tab1.lengh STEP 1 DO{
+        for j FROM  tab2.lengh STEP 1 DO {
+            if(tab1[i] != tab2[j]){
+                comp++;
+            }
+            if(comp == tab2.length){
+                sum += tab1[i];
+            }
+            
+        }
+        comp = 0
+    }
+
+    for i FROM 0 TO tab2.lengh STEP 1 DO{
+        for j FROM  tab1.lengh STEP 1 DO {
+            if(tab2[i] != tab1[j]){
+                comp++;
+            }
+            if(comp == tab1.length){
+                sum += tab2[i];
+            }
+            
+        }
+        comp = 0
+    }
+    WRITE(sum);
+END
+
+
+
+ALGORITHM hash
+VAR
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   sum:=0 :  INTEGER;
+  
+BEGIN
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   htab.insert(4,1);
+   htab.insert(5,2);
+   htab.insert(3,2);
+   htab.insert(9,1);
+   htab.insert(0,1);
+   htab.insert(1,2);
+   htab.insert(2,1);
+   
+   foreach(int n in htab.keys){
+       if(htab[n] == 1)THEN
+        sum =  sum + htab[n]
+   }
+    END_FOR
+END
+
+
+ALGORITHM tab1
+VAR
+    tab1:= [1, 4, 7, 9, 11] : INTEGER;
+    tab2 :=[5, 9, 13, 4, 20, 16] : INTEGER;
+    i: INTEGER;
+    j: INTEGER;
+    sum:=0 :INTEGER;
+BEGIN
+    for i FROM 0 TO tab1.lengh STEP 1 DO{
+        for j FROM  tab2.lengh STEP 1 DO {
+            if(tab1[i] == tab2[j]){
+                sum += 2*tab1[i];
+            }
+            
+        }
+        comp = 0
+    }
+    WRITE(sum);
+
+END
+
+
+
+
+ALGORITHM hash
+VAR
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   sum*:=0 :  INTEGER;
+  
+BEGIN
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   htab.insert(4,1);
+   htab.insert(5,2);
+   htab.insert(3,2);
+   htab.insert(9,1);
+   htab.insert(0,1);
+   htab.insert(1,2);
+   htab.insert(2,1);
+   
+   foreach(int n in htab.keys){
+       if(htab[n] == 2)THEN
+        sum =  sum + 2*htab[n];
+   }
+    END_FOR
